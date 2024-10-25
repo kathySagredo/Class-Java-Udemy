@@ -3,6 +3,7 @@
 * Reglas de variables
 * Tipos de datos
 * Concatenación de cadenas
+* Indices de una cadena y comparación de cadenas
 * Constantes
 */
 public class Variables {
@@ -59,6 +60,41 @@ public class Variables {
 
         // Contatenacion de cadenas (se utiliza +)
         System.out.println(NombreCompleto + " tiene " + edad);
+        // Concat
+        var cad1 = "hola"; var cad2 = "mundo";
+        var cad3 = cad1.concat(" ").concat("mundo");
+        System.out.println("cad3 = " + cad3);
+        // Stringbuilder
+        var constructorDeCadenas = new StringBuilder();
+        constructorDeCadenas.append(cad1);
+        constructorDeCadenas.append(" ");
+        constructorDeCadenas.append(cad2);
+        System.out.println("constructorDeCadenas = " + constructorDeCadenas);
+        // Stringbuffer
+        var stringBuffer = new StringBuffer(); // Para trabajar con varios hilos a la vez
+        stringBuffer.append(cad1).append(" ").append(cad2);
+        System.out.println("stringBuffer = " + stringBuffer);
+        // Join
+        var resultado = String.join(" ", cad1, cad2, "adios");
+        System.out.println("resultado = " + resultado);
+
+        // Para cadenas de multiples lineas se utiliza tres comillas """ text block """
+        // Recuerda que las cadenas son inmutables en JAVA
+
+        // Indices de una cadena
+        var cadena1 = "Hola Mundo";
+        var primerCaracter = cadena1.charAt(0); // Recupera el primer caracter
+        System.out.println("primerCaracter = " + primerCaracter);
+        var ultimoCaracter = cadena1.charAt(9);
+        System.out.println("ultimoCaracter = " + ultimoCaracter);
+        cadena1 = "Adios Mundo"; // Cadenas son inmutables, se crea una nuevo objeto de tipo cadena con ese valor.
+
+        // Comparación de cadenas
+        var cadena2 = "Java";
+        var cadena3 = "Java"; // Basicamente ambas cadenas apuntan al mismo objeto, Java reconoce el valor.
+        // System.out.println(cadena2 == cadena3); true
+        // Esto no funciona si se asigna a la variable de la siguiente forma: var cadena4 = new String("Java")
+        // Pero si funcionaría con el metodo equals.
 
         // Sintaxis para definir una constante: final tipo nombreContstante = valor
         final int DIAS_EN_SEMANA = 7; System.out.println("DIAS_EN_SEMANA = " + DIAS_EN_SEMANA);
